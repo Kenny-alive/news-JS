@@ -1,0 +1,59 @@
+body {
+    height: 100vh;
+    color: #fff;
+    background: #17181c;
+    font-family: sans-serif;
+
+}
+
+
+header {
+    padding: 10px 20px;
+}
+
+header h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+footer {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .copyright {
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+
+footer .copyright a {
+    color: #444;
+}
+
+footer .copyright a:hover {
+    color: #555;
+}
+
+footer .copyright:before {
+    content: '©';
+}
+
+.github {
+    width: 90px;
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.rs {
+    /* width: 90px; */
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
