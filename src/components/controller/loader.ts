@@ -1,3 +1,8 @@
+enum Endpoint {
+    Sources = 'sources',
+    Everything = 'everything',
+}
+
 type Options = Record<string, string | number>;
 
 interface Article {
@@ -44,7 +49,7 @@ class Loader {
     }
 
     getResp(
-        { endpoint, options = {} }: { endpoint: string; options?: Options },
+        { endpoint, options = {} }: { endpoint: Endpoint; options?: Options },
         callback: (data: ApiResponse) => void = () => {
             console.error('No callback for GET response');
         }
@@ -62,7 +67,7 @@ class Loader {
         return res;
     }
 
-    private makeUrl(options: Options, endpoint: string): string {
+    private makeUrl(options: Options, endpoint: Endpoint): string {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -73,7 +78,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load(method: string, endpoint: string, callback: (data: ApiResponse) => void, options: Options = {}): void {
+    private load(
+        method: string,
+        endpoint: Endpoint,
+        callback: (data: ApiResponse) => void,
+        options: Options = {}
+    ): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())

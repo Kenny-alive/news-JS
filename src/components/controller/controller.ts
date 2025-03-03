@@ -1,5 +1,10 @@
 import AppLoader from './appLoader';
 
+enum Endpoint {
+    Sources = 'sources',
+    Everything = 'everything',
+}
+
 interface Article {
     title: string;
     description: string;
@@ -32,7 +37,7 @@ class AppController extends AppLoader {
     getSources(callback: SourcesCallback): void {
         super.getResp(
             {
-                endpoint: 'sources',
+                endpoint: Endpoint.Sources,
             },
             (data: ApiResponse) => {
                 if (data.sources && data.sources.length > 0) {
@@ -64,7 +69,7 @@ class AppController extends AppLoader {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp(
                         {
-                            endpoint: 'everything',
+                            endpoint: Endpoint.Everything,
                             options: {
                                 sources: sourceId,
                             },
