@@ -36,9 +36,19 @@ class Sources {
         const sourcesContainer = document.querySelector('.sources') as HTMLElement | null;
         if (sourcesContainer) {
             sourcesContainer.append(fragment);
+            this.addClickHandlers();
         } else {
             console.error('Sources not found.');
         }
+    }
+    private addClickHandlers(): void {
+        const items = document.querySelectorAll('.source__item');
+        items.forEach((item) => {
+            item.addEventListener('click', function (this: HTMLElement) {
+                items.forEach((el) => el.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
     }
 }
 

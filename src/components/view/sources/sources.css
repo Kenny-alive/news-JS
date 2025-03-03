@@ -30,6 +30,12 @@
     transform: translateY(-0.25em);
 }
 
+.source__item.selected {
+    background-color: #090b01;
+    color: #d6f42c;
+    border-color: #f4fa35;
+}
+
 .source__item-name {
     font-weight: 400;
     white-space: nowrap;

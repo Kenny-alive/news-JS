@@ -1,9 +1,21 @@
+html,
 body {
-    height: 100vh;
+    height: 100%;
+    margin: 0;
+}
+
+
+body {
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+main {
+    flex: 1;
 }
 
 
@@ -13,6 +25,7 @@ header {
 
 header h1 {
     display: flex;
+    color: #30c5ff;
     justify-content: center;
     align-items: center;
     font-size: 40px;
@@ -24,36 +37,72 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center; */
 }
 
 footer .copyright {
-    font-size: 14px;
-    color: #333;
+    font-size: 18px;
+    color: #30c5ff;
     text-align: center;
 }
 
 footer .copyright a {
-    color: #444;
+    color: #30c5ff;
+    text-decoration: none;
 }
 
 footer .copyright a:hover {
-    color: #555;
+    color: #6ed2fa;
+    text-decoration: none;
 }
 
 footer .copyright:before {
     content: '©';
 }
 
-.github {
+/* .github {
     width: 90px;
     height: 40px;
     margin-left: 10px;
     margin-top: 10px;
-}
+} */
 
-.rs {
-    /* width: 90px; */
-    height: 40px;
+/* .rs { */
+/* width: 90px; */
+/* height: 40px;
     margin-right: 10px;
     margin-top: 10px;
+} */
+
+.rs,
+.github,
+.copyright {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #17181c;
+    color: #f5f104;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: color 0.3s ease;
+}
+
+.rs:hover,
+.github:hover {
+    color: #30c5ff;
+}
+
+
+.source__item::selection {
+    background-color: #ffb7b7;
+    /* Фон для выбранного элемента */
+    color: #fff;
+    /* Цвет текста для выбранного элемента */
+    border-color: #ff5c5c;
+    /* Граница для выбранного элемента */
 }
